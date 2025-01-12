@@ -1,0 +1,30 @@
+[
+  {
+    "slug": "nisyu",
+    "title": "Nisyu",
+    "description": "Nisyu is an e-commerce platform for makeup products. It features product listings, a shopping cart, and secure transactions. Developed as a college project.",
+    "technologiesUsed": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "PHP",
+      "MySQL"
+    ],
+    "country": "Nepal",
+    "image": "/assets/img/projects/nisyu.jpg",
+    "achievements": "It was my first project. And it was the project from where I understood web development deeply.",
+    "link": "https://example.com/nisyu"
+  },
+  {
+    "slug": "gycare",
+    "title": "GYCare",
+    "description": "GYCare is a user-friendly ambulance booking app prototye. It allows users to quickly request an ambulance in emergencies, track its real-time arrival, and make secure payments. ",
+    "technologiesUsed": [
+      "Figma"
+    ],
+    "country": "Nepal",
+    "image": "/assets/img/projects/ambulance.png",
+    "achievements": "Understood the prototyping process.",
+    "link": "https://example.com/gycare"
+  }
+]

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Description</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon-32x32.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- JQuery Link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Project Description Section -->
+<section id="project-detail" class="project-description section py-5">
+  <div class="container">
+    <div class="row" id="project-content" style="display: none;">
+      <!-- Project content will be loaded dynamically here -->
+    </div>
+
+    <!-- Loading animation -->
+    <div class="text-center" id="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+
+<!-- Custom Script -->
+<script>
+  // Get slug from the URL
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+
+  // Fetch project data from JSON
+  $.getJSON("json/projects.json", function(data) {
+    const project = data.find(proj => proj.slug === slug);
+    
+    if (project) {
+      // Generate the HTML for the project description
+      const projectHTML = `
+        <div class="col-md-12">
+          <div class="card shadow-sm mb-4 p-4" data-aos="fade-up">
+            <div class="row">
+              <!-- Project Image -->
+              <div class="col-md-6 mb-4">
+                <img src="${project.image}" alt="${project.title} Project Image" class="img-fluid rounded shadow">
+              </div>
+
+              <!-- Project Info -->
+              <div class="col-md-6">
+                <h2 class="project-title text-primary mb-3">${project.title}</h2>
+                <p class="project-country"><strong>Country:</strong> ${project.country}</p>
+                <p class="project-description">${project.description}</p>
+                <p class="project-achievements text-success"><strong>Achievements:</strong> ${project.achievements}</p>
+              </div>
+            </div>
+
+            <!-- Technologies Used -->
+            <div class="row mt-4">
+              <div class="col-12">
+                <h3 class="text-secondary">Technologies Used</h3>
+                <ul class="list-inline mt-3">
+                  ${project.technologiesUsed.map(tech => `
+                    <li class="list-inline-item tech-item p-2 rounded shadow-sm"><i class="bi bi-check-circle-fill"></i> ${tech}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+
+            <!-- Project Link -->
+            <div class="row mt-4">
+              <div class="col-12 text-center">
+                <a href="${project.link}" class="btn btn-outline-primary btn-lg px-5 py-3" target="_blank">Visit Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Back to Home Button -->
+        <div class="col-12 text-center mt-5">
+          <a href="/#project" class="btn btn-outline-secondary btn-lg px-5 py-3">Back to Home</a>
+        </div>
+      `;
+
+      // Insert the HTML into the DOM
+      $('#project-content').html(projectHTML).fadeIn();
+    } else {
+      $('#project-content').html('<p>Project not found.</p>');
+    }
+
+    // Hide loading spinner
+    $('#loading').hide();
+
+    // Initialize AOS for animation
+    AOS.init();
+  }).fail(function() {
+    $('#project-content').html('<p>Error loading project data.</p>');
+  });
+</script>
+
+</body>
+</html>
