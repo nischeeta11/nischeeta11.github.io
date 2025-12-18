@@ -1,11 +1,11 @@
 
-# Darshan-KC.github.io
+# Nischeeta-Shrestha.github.io
 
 This repository contains the source code for my personal website hosted on GitHub Pages.
 
 ## Website
 
-You can visit the live site here: [Darshan-KC.github.io](https://nischeeta11.github.io)
+You can visit the live site here: [Nischeeta-Shrestha.github.io](https://nischeeta11.github.io)
 
 ## Features
 
@@ -14,23 +14,6 @@ You can visit the live site here: [Darshan-KC.github.io](https://nischeeta11.git
 - **Responsive Design**: Optimized for both desktop and mobile views.
 - **Hosted with GitHub Pages**: Easily accessible and auto-updated with each commit.
 
-## How to Run Locally
-
-To run the project locally, follow these steps:
-
-1. Clone the repository:
-
-   \`\`\`bash
-   git clone https://github.com/Darshan-KC/Darshan-KC.github.io.git
-   \`\`\`
-
-2. Navigate to the project directory:
-
-   \`\`\`bash
-   cd Darshan-KC.github.io
-   \`\`\`
-
-3. Open the \`index.html\` file in your browser or serve the site locally:
 
 ## Technologies Used
 
